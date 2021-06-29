@@ -2,7 +2,6 @@
 
 git add .
 git commit -am "build"
-# git push --set-upstream origin feature/build-vercel
 git push
 cd ~/Downloads
 rm -rf ./uad-ui-launch-testenv/

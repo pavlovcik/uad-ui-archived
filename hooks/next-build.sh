@@ -12,7 +12,6 @@ pwd
 export TS_NODE_TRANSPILE_ONLY=1 && yarn hardhat compile
 echo "✅ --- 3 ---"
 pwd
-# mkdir -p ../frontend/src/
 echo "✅ --- 4 ---"
 pwd
 cp -r $(pwd)/artifacts/types $(pwd)/src/
@@ -27,7 +26,4 @@ pwd
 next build;
 yarn run prestart;
 echo "✅ --- 8 ---"
-pwd
-# yarn next start
-echo "✅ --- 9 ---"
 pwd
