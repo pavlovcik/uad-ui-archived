@@ -16,7 +16,6 @@ import { UbiquityGovernance__factory } from "../src/types/factories/UbiquityGove
 import { UbiquityAlgorithmicDollarManager } from "../src/types/UbiquityAlgorithmicDollarManager";
 import { EthAccount } from "../utils/types";
 import Account from "./account";
-import BondingMigrate from "./bonding.migrate";
 import ChefUgov from "./chefugov";
 import { Balances, useConnectedContext } from "./context/connected";
 import CurveBalance from "./curve.balance";
@@ -116,7 +115,6 @@ export async function _connect(
     ubq: await ugov.balanceOf(accounts[0]),
     debtCoupon: await erc1155BalanceOf(accounts[0], debtCouponToken),
     bondingShares: await erc1155BalanceOf(accounts[0], bondingToken),
-    bondingSharesLP: BigNumber.from(0),
   });
 
   const TWAP_ADDR = await manager.twapOracleAddress();
@@ -186,7 +184,7 @@ export function _renderControls() {
 
         <TwapPrice />
         <ChefUgov />
-        <BondingMigrate />
+
         <DepositShare />
         {balances?.uar.gt(BigNumber.from(0)) &&
         twapPrice?.gte(ethers.utils.parseEther("1")) ? (
