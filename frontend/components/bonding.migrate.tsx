@@ -71,8 +71,8 @@ const BondingMigrate = () => {
         const SIGNER = provider.getSigner();
         const BONDING_ADDR = await manager.bondingContractAddress();
         const bonding = BondingV2__factory.connect(BONDING_ADDR, SIGNER);
-        // setMigrateId(await bonding.toMigrateId(account.address));
-        setMigrateId(BigNumber.from(1));
+        setMigrateId(await bonding.toMigrateId(account.address));
+        // setMigrateId(await BigNumber.from(1));
       }
     })();
   }, [account, manager, provider]);
