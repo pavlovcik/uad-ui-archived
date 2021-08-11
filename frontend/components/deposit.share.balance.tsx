@@ -72,10 +72,10 @@ async function calculateBondingShareLPBalance(
 }
 async function _bondingShareBalance(
   account: string,
-  manager: UbiquityAlgorithmicDollarManager | undefined,
-  provider: ethers.providers.Web3Provider | undefined,
-  balances: Balances | undefined,
-  setBalances: Dispatch<SetStateAction<Balances | undefined>>,
+  manager: UbiquityAlgorithmicDollarManager | null,
+  provider: ethers.providers.Web3Provider | null,
+  balances: Balances | null,
+  setBalances: Dispatch<SetStateAction<Balances | null>>,
   setPercentage: Dispatch<SetStateAction<string | undefined>>
 ) {
   if (manager && provider) {
@@ -147,16 +147,6 @@ const DepositShareBalance = () => {
     return null;
   }
 
-  const handleBalance = async () => {
-    _bondingShareBalance(
-      account ? account.address : "",
-      manager,
-      provider,
-      balances,
-      setBalances,
-      setPercentage
-    );
-  };
   return (
     <>
       <div id="deposit-share-balance">
@@ -184,8 +174,6 @@ const DepositShareBalance = () => {
             Loading LP locked in Bonding Shares...
           </>
         )}
-
-        {/* <button onClick={handleBalance}>Get Bonding Shares</button> */}
       </div>
     </>
   );

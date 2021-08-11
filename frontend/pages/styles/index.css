@@ -443,6 +443,10 @@ a:-webkit-any-link {
     white-space: nowrap;
 }
 
+
+.bg-blur {
+    backdrop-filter: blur(24px);
+}
 [id^="inventory-"] [id$="-balance"] a {
     text-decoration: none;
 }

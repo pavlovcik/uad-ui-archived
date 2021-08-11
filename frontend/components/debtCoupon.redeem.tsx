@@ -1,21 +1,19 @@
 import { BigNumber, ethers } from "ethers";
 import { Balances, useConnectedContext } from "./context/connected";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { Dropdown, Selection } from "react-dropdown-now";
+import { Dropdown } from "react-dropdown-now";
 import Image from "next/image";
 import {
   DebtCouponManager__factory,
   DebtCoupon__factory,
-  ICouponsForDollarsCalculator__factory,
   UbiquityAlgorithmicDollarManager,
-  UbiquityAlgorithmicDollar__factory,
 } from "../src/types";
 import { ADDRESS } from "../pages";
 
 const _getDebtIds = async (
   account: string,
-  manager: UbiquityAlgorithmicDollarManager | undefined,
-  provider: ethers.providers.Web3Provider | undefined,
+  manager: UbiquityAlgorithmicDollarManager | null,
+  provider: ethers.providers.Web3Provider | null,
   debtIds: BigNumber[] | undefined,
   setDebtIds: Dispatch<SetStateAction<BigNumber[] | undefined>>
 ) => {
@@ -68,7 +66,7 @@ const DebtCouponRedeem = () => {
   const redeemDebtForDollar = async (
     debtId: string | undefined,
     amount: BigNumber,
-    setBalances: Dispatch<SetStateAction<Balances | undefined>>
+    setBalances: Dispatch<SetStateAction<Balances | null>>
   ) => {
     console.log("debtId", debtId);
     if (provider && account && manager && debtId) {

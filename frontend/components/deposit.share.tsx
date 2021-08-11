@@ -14,9 +14,9 @@ import DepositShareBalance from "./deposit.share.balance";
 async function _allowAndDepositBondingToken(
   lpsAmount: ethers.BigNumber,
   weeks: ethers.BigNumber,
-  provider: ethers.providers.Web3Provider | undefined,
+  provider: ethers.providers.Web3Provider | null,
   account: EthAccount,
-  manager: UbiquityAlgorithmicDollarManager | undefined,
+  manager: UbiquityAlgorithmicDollarManager | null,
   setErrMsg: Dispatch<SetStateAction<string | undefined>>
 ) {
   if (provider && account && manager) {
@@ -60,11 +60,11 @@ async function _allowAndDepositBondingToken(
 }
 
 async function _depositBondingTokens(
-  provider: ethers.providers.Web3Provider | undefined,
+  provider: ethers.providers.Web3Provider | null,
   account: EthAccount,
-  manager: UbiquityAlgorithmicDollarManager | undefined,
-  balances: Balances | undefined,
-  setBalances: Dispatch<SetStateAction<Balances | undefined>>,
+  manager: UbiquityAlgorithmicDollarManager | null,
+  balances: Balances | null,
+  setBalances: Dispatch<SetStateAction<Balances | null>>,
   setErrMsg: Dispatch<SetStateAction<string | undefined>>,
   setIsLoading: Dispatch<SetStateAction<boolean | undefined>>
   // setPercentage: Dispatch<SetStateAction<string | undefined>>
@@ -137,8 +137,8 @@ async function _depositBondingTokens(
 async function _expectedShares(
   lpAmount: BigNumber,
   weeks: BigNumber,
-  manager: UbiquityAlgorithmicDollarManager | undefined,
-  provider: ethers.providers.Web3Provider | undefined,
+  manager: UbiquityAlgorithmicDollarManager | null,
+  provider: ethers.providers.Web3Provider | null,
   setExpectedShares: Dispatch<SetStateAction<BigNumber | undefined>>
 ) {
   if (manager && provider) {
